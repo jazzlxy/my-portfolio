@@ -1,0 +1,378 @@
+/* Main Layout */
+.main-page {
+  @apply flex min-h-screen flex-col;
+  /* @apply bg-[#121212]; removed use global.css */
+}
+
+/* Container that contains contents */
+.content-box {
+  @apply container mx-auto mt-30;
+  @apply px-12 py-4;
+}
+
+/* Component Styling */
+
+/* ======================= */
+/* HeroSection */
+/* ======================= */
+.hero-grid {
+  @apply grid grid-cols-1 lg:grid-cols-12; /* sm: 12 columns split between text(7) and image(5) */
+  @apply lg:gap-12 xl:gap-0; /* For better spacing */
+}
+
+.primary-grid {
+  @apply lg:col-span-7; /* text - only apply to col-span on large screen*/
+  @apply place-self-center;
+  @apply text-center lg:text-left;
+}
+
+.hero-head {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold;
+  @apply mb-4;
+  /* @apply text-white; */
+  color: var(--text-primary); /* use theme color */
+}
+
+.hero-header {
+  @apply text-transparent bg-clip-text;
+  /* @apply bg-gradient-to-r from-purple-400 to-pink-600; */
+  background-image: linear-gradient(
+    to right,
+    var(--color-purple),
+    var(--color-pink)
+  );
+}
+
+.hero-body {
+  @apply text-base sm:text-lg lg:text-xl;
+  @apply mb-6; /* space for resume button below */
+  /* @apply max-w-full xl:max-w-lg; */
+  color: var(--text-secondary); /* use theme color */
+}
+
+.hero-resume {
+  @apply rounded-full;
+  /* @apply bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500; */
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-blue),
+    var(--color-purple),
+    var(--color-pink)
+  );
+  @apply text-white;
+  @apply px-3 py-1;
+  @apply transition-all duration-300; /* Smooth hover transition */
+}
+
+.hero-resume:hover {
+  /* @apply bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500; */
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-pink),
+    var(--color-purple),
+    var(--color-blue)
+  );
+  @apply scale-105; /* Slight scale effect on hover */
+}
+
+.secondary-grid {
+  @apply lg:col-span-5; /* image */
+  @apply place-self-center;
+  @apply mt-8 lg:mt-0;
+}
+
+.avatar-frame {
+  @apply rounded-full;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-pink),
+    var(--color-purple),
+    var(--color-blue)
+  );
+  /* @apply bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500; */
+  @apply w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] lg:w-[320px] lg:h-[320px] relative;
+  @apply overflow-hidden; /* Ensure hero-avatar fit inside the frame */
+}
+
+.hero-avatar {
+  @apply absolute transform -translate-x-1/2 -translate-y-1/2;
+  @apply top-1/2 left-1/2;
+}
+/* top: Moves the image down by 50% of the parent's height
+left: Moves the image right by 50% of the parent's height/width */
+/* -translate-x-1/2: Pulls the image back to the left by half of its own width
+-translate-y-1/2: Pulls the image back up by half of its own height */
+
+/* ======================= */
+/* Navbar */
+/* ======================= */
+.nav-fix {
+  @apply fixed top-0 left-0 right-0 z-10;
+  /* @apply bg-[#121212]/90; */
+  background-color: var(--bg-secondary);
+  opacity: 0.9;
+}
+
+.navbar {
+  @apply flex flex-wrap items-center justify-between;
+  @apply mx-auto;
+  @apply p-4;
+}
+
+.logo {
+  @apply lg:w-[80px] lg:h-auto;
+}
+
+/* MOBILE */
+.mobile-menu {
+  @apply block md:hidden;
+  @apply ml-auto mr-8;
+}
+
+.bar-icon {
+  @apply flex items-center;
+  @apply px-3 py-2;
+  @apply border rounded-sm;
+  @apply transition-colors duration-300; /* smooth color transition */
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  /* @apply border-white hover:border-purple-300; */
+  /* @apply text-white hover:text-purple-300; */
+}
+
+.bar-icon:hover {
+  color: var(--color-blue);
+  border-color: var(--color-blue);
+}
+
+.x-icon {
+  @apply flex items-center;
+  @apply px-3 py-2;
+  @apply border rounded-sm;
+  @apply transition-colors duration-300; /* smooth color transition */
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  /* @apply border-white hover:border-purple-300; */
+  /* @apply text-white hover:text-purple-300; */
+}
+
+.x-icon:hover {
+  color: var(--color-blue);
+  border-color: var(--color-blue);
+}
+
+/* DESKTOP MENU */
+.main-menu {
+  @apply hidden md:block; /* menu hidden for mobile size */
+  @apply md:w-auto;
+  @apply ml-auto mr-8; /* ml-auto push it to the right */
+}
+
+.menu-item {
+  @apply flex md:flex-row;
+  @apply md:space-x-8;
+  @apply p-4 md:p-0;
+}
+
+/* ======================= */
+/* Navlink */
+/* ======================= */
+.navlink {
+  @apply block rounded;
+  @apply py-2 pl-3 pr-4 md:p-0 md:px-4;
+  @apply sm:text-lg;
+  @apply transition-colors duration-300;
+  color: var(--text-primary);
+  /* @apply text-white hover:text-purple-300; */
+}
+
+.navlink:hover {
+  color: var(--color-blue);
+}
+
+/* ======================= */
+/* MenuOverlay */
+/* ======================= */
+.menu-overlay {
+  @apply flex flex-col;
+  @apply items-center;
+  @apply py-4;
+}
+
+/* ======================= */
+/* About Section */
+/* ======================= */
+
+.about-main {
+  color: var(--text-primary);
+  @apply grid grid-cols-1 lg:grid-cols-3;
+  @apply gap-6 lg:gap-26;
+  @apply items-center;
+  @apply lg:px-2 py-10 sm:py-24;
+}
+
+.primary-about-grid {
+  @apply lg:col-span-1;
+  @apply place-self-center;
+  @apply pt-10;
+}
+
+.pic-frame {
+  @apply rounded-xl;
+  background-image: linear-gradient(
+    to top right,
+    var(--color-blue),
+    var(--color-purple),
+    var(--color-pink)
+  );
+  @apply w-[250px] h-[300px] relative;
+  @apply overflow-hidden;
+}
+
+.my-pic {
+  @apply absolute transform -translate-x-1/2 -translate-y-1/2;
+  @apply top-1/2 left-1/2;
+  /* @apply place-self-center; */
+}
+
+.secondary-about-grid {
+  @apply lg:col-span-2;
+}
+
+.about-head {
+  @apply font-semibold text-xl md:text-2xl;
+  @apply pb-4 lg:pb-8;
+  color: var(--text-primary);
+  @apply text-center lg:text-left;
+}
+
+.about-body {
+  @apply text-base md:text-lg;
+  color: var(--text-secondary);
+}
+
+/* ======================= */
+/* SkillSection */
+/* ======================= */
+
+.skills-main {
+  @apply px-8 py-10 sm:pb-20 sm:pt-10;
+}
+
+.skills-head {
+  @apply font-semibold text-xl md:text-2xl;
+  color: var(--text-primary);
+  @apply text-center;
+}
+
+/* Skills Scrollable container - Horizontal */
+.skills-scroll {
+  @apply flex flex-row overflow-x-auto;
+  @apply snap-x snap-mandatory;
+  scroll-behavior: smooth;
+  @apply py-6 md:py-10;
+  @apply gap-12;
+
+  scrollbar-color: var(--color-purple) transparent;
+  /* scrollbar-width: thin; */
+}
+
+.skills-card {
+  @apply shrink-0; /* Don't shrink */
+  @apply w-[200px] sm:w-[250px] md:w-[350px] h-auto;
+  @apply rounded-2xl;
+  @apply p-6;
+  @apply snap-center; /* Snap to center when scrolling */
+  background: var(--bg-secondary);
+  border: 2px solid var(--color-purple);
+}
+
+.skills-card:hover {
+  border-color: var(--color-pink);
+  @apply shadow-xl shadow-purple-800/40;
+  @apply transform -translate-y-2; /* create pop up feel */
+}
+
+.skills-category {
+  @apply text-lg md:text-xl;
+  @apply text-center;
+  color: var(--text-primary);
+}
+
+.skills-name {
+  @apply py-4;
+  @apply text-sm md:text-base;
+}
+
+.skills-bar-bg {
+  @apply w-full h-3 rounded-full overflow-hidden;
+  background: var(--color-blue);
+}
+
+.skills-bar-fill {
+  /* @apply bg-[#d6a8c4]; */
+  background: linear-gradient(to right, var(--color-purple), var(--color-pink));
+  @apply h-full rounded-full;
+}
+
+/* ======================= */
+/* ProjectSection */
+/* ======================= */
+.project-main {
+  @apply px-8 py-10 sm:pb-20 sm:pt-10;
+}
+
+.project-head {
+  @apply font-semibold text-xl md:text-2xl;
+  @apply text-center;
+  color: var(--text-primary);
+  @apply pb-5 md:pb-10;
+}
+
+.project-content {
+  @apply grid grid-cols-1 md:grid-cols-2;
+  @apply gap-6 md:gap-20;
+}
+
+/* ======================= */
+/* ProjectCard */
+/* ======================= */
+.project-image {
+  @apply relative; /* Important for overlay positioning */
+  @apply w-full h-[200px] lg:h-[300px]; /* Responsive heights */
+  @apply rounded-t-xl;
+}
+
+.project-overlay {
+  @apply absolute;
+  @apply inset-0;
+  /* @apply w-full h-full;  inset-0 = w-full, h-full top-0 left-0 */
+  @apply hidden; /* Hidden by default */
+  @apply bg-[#181818];
+  @apply opacity-0; /* Set bg opacity 0 invisible by default */
+  @apply flex items-center justify-center;
+  @apply group-hover:opacity-80;
+  @apply transition-all duration-500;
+}
+
+.project-text {
+  @apply rounded-b-xl;
+  background: var(--bg-secondary);
+  @apply py-4 px-4;
+}
+
+.project-title {
+  @apply text-base;
+  @apply font-semibold;
+  @apply pb-2;
+  color: var(--text-primary);
+}
+
+.project-description {
+  @apply text-sm;
+  color: var(--text-secondary);
+}
+
+.codebraket-icon {
+  @apply w-[10px] h-[10px];
+}
