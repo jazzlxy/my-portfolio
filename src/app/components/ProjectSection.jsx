@@ -9,7 +9,7 @@ const projectData = [
     description: "Using Vite + React and Express.js to build a weather tracker",
     image: "/images/projects/p1.png",
     gitURL: "https://github.com/jazzlxy/weather-frontend.git",
-    previewURL: "https://weather-frontend-nine-theta.vercel.app/",
+    previewURL: "https://my-weather-tracker.vercel.app/",
   },
   {
     id: 2,
