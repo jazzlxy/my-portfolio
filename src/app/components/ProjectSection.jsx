@@ -6,15 +6,18 @@ const projectData = [
   {
     id: 1,
     title: "Weather Tracker Website",
-    description:
-      "Using Vite + React and Express.js to build a simple weather tracker app",
+    description: "Using Vite + React and Express.js to build a weather tracker",
     image: "/images/projects/p1.png",
+    gitURL: "https://github.com/jazzlxy/weather-frontend.git",
+    previewURL: "https://weather-frontend-nine-theta.vercel.app/",
   },
   {
     id: 2,
     title: "My Portfolio Website",
     description: "Using Next.js to build my personal portfolio",
     image: "/images/projects/p2.png",
+    gitURL: "https://github.com/jazzlxy/my-portfolio.git",
+    previewURL: "/",
   },
 ];
 
@@ -29,6 +32,8 @@ const ProjectSection = () => {
             title={projectItem.title}
             description={projectItem.description}
             imgURL={projectItem.image}
+            gitURL={projectItem.gitURL}
+            previewURL={projectItem.previewURL}
           />
         ))}
       </div>

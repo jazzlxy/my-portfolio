@@ -257,6 +257,7 @@ left: Moves the image right by 50% of the parent's height/width */
 
 .skills-main {
   @apply px-8 py-10 sm:pb-20 sm:pt-10;
+  @apply scroll-mt-20;
 }
 
 .skills-head {
@@ -319,7 +320,8 @@ left: Moves the image right by 50% of the parent's height/width */
 /* ProjectSection */
 /* ======================= */
 .project-main {
-  @apply px-8 py-10 sm:pb-20 sm:pt-10;
+  @apply px-8 py-10 sm:pb-20 sm:pt-15;
+  @apply scroll-mt-20;
 }
 
 .project-head {
@@ -331,7 +333,7 @@ left: Moves the image right by 50% of the parent's height/width */
 
 .project-content {
   @apply grid grid-cols-1 md:grid-cols-2;
-  @apply gap-6 md:gap-20;
+  @apply gap-12 md:gap-20;
 }
 
 /* ======================= */
@@ -351,8 +353,31 @@ left: Moves the image right by 50% of the parent's height/width */
   @apply bg-[#181818];
   @apply opacity-0; /* Set bg opacity 0 invisible by default */
   @apply flex items-center justify-center;
+  @apply gap-4;
   @apply group-hover:opacity-80;
   @apply transition-all duration-500;
+}
+
+.overlay-icon {
+  @apply absolute;
+  @apply top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  @apply w-[20px] h-[20px] lg:w-[30px] lg:h-[30px];
+  /* @apply text-[#ADB7BE]; */
+  color: var(--color-pink);
+  @apply group-hover/link:text-[var(--color-blue)];
+  @apply cursor-pointer;
+}
+
+.icon-border {
+  @apply relative;
+  @apply w-[28px] h-[28px] lg:w-[38px] lg:h-[38px];
+  @apply rounded-full;
+  @apply border-2;
+  border-color: var(--color-pink);
+}
+
+.icon-border:hover {
+  border-color: var(--color-blue);
 }
 
 .project-text {
@@ -373,6 +398,128 @@ left: Moves the image right by 50% of the parent's height/width */
   color: var(--text-secondary);
 }
 
-.codebraket-icon {
-  @apply w-[10px] h-[10px];
+/* ======================= */
+/* ContactSection */
+/* ======================= */
+.contact-main {
+  @apply grid grid-cols-1 lg:grid-cols-3;
+  @apply px-8 py-10 sm:pb-20 sm:pt-15;
+  @apply scroll-mt-20;
+  @apply gap-10 lg:gap-20;
+}
+
+/* ======================= */
+.primary-contact-grid {
+  @apply lg:col-span-1;
+}
+
+.contact-head {
+  @apply font-semibold text-xl md:text-2xl;
+  color: var(--text-primary);
+  @apply pb-2 md:pb-4;
+}
+
+.contact-text {
+  @apply text-sm md:text-base;
+  color: var(--text-secondary);
+  @apply pb-4 lg:pb-10;
+}
+
+.socials {
+  @apply flex flex-row;
+  @apply gap-2;
+  @apply pt-2;
+}
+
+/* DARK MODE FOR SOCIAL ICON using css way*/
+/* .social-icon-dark {
+  display: inline-block; Show in dark mode
+}
+
+/* .social-icon-light {
+  display: none;  Hide in dark mode 
+} 
+
+/* LIGHT MODE FOR SOCIAL ICON */
+/* :root.light .social-icon-dark {
+  display: none; Hide in light mode
+} 
+
+/* :root.light .social-icon-light {
+  display: inline-block; Show in light mode 
+} */
+/* ======================= */
+
+.secondary-contact-grid {
+  @apply lg:col-span-2;
+}
+
+.contact-form {
+  @apply max-w-2xl;
+  @apply mx-auto; /* Centers the form */
+}
+
+.contact-info {
+  @apply grid auto-cols-auto;
+  @apply gap-6;
+}
+.contact-input {
+  @apply w-full; /* fill grid cell - parent is grid */
+  color: var(--text-primary);
+  @apply text-sm lg:text-base;
+  background: var(--bg-secondary);
+  border: 1px solid var(--color-purple);
+  @apply rounded-2xl;
+  @apply outline-none; /* Remove outline when click */
+  @apply py-2 px-4;
+}
+
+.submit-button {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  @apply text-sm lg:text-base;
+  border: 1px solid var(--color-purple);
+  @apply rounded-full;
+  @apply py-2 px-4;
+  @apply mt-4;
+  @apply place-self-center; /* Center the button */
+  @apply flex items-center justify-center; /* Center message inside the button */
+}
+
+.submit-button:hover {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-pink),
+    var(--color-purple),
+    var(--color-blue)
+  );
+  @apply text-white;
+  border: 1px solid var(--color-blue);
+  @apply transition duration-300 ease-in-out;
+  @apply scale-105; /* Pop up effect */
+  @apply shadow-lg; /* Enhance pop up effect */
+}
+
+.status-msg {
+  @apply font-semibold;
+  @apply text-center;
+  @apply pt-4;
+}
+
+/* ======================= */
+/* Footer */
+/* ======================= */
+.footer-content {
+  @apply text-center;
+  @apply p-4;
+}
+
+.footer-text {
+  @apply text-sm;
+  color: var(--text-secondary);
+}
+
+.footer-credit {
+  @apply text-sm;
+  color: var(--text-secondary);
 }

@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = () => {
   return (
-    <section id="home">
+    <section id="home" className="scroll-mt-30">
       <div className="hero-grid">
         <div className="primary-grid">
           <h1 className="hero-head">
@@ -29,7 +30,14 @@ const HeroSection = () => {
             biomedical science background.
           </p>
           <div>
-            <button className="hero-resume">my resume</button>
+            <Link
+              href="/jazz-resume-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-resume"
+            >
+              my resume
+            </Link>
           </div>
         </div>
         <div className="secondary-grid">

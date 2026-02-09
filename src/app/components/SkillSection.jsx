@@ -6,30 +6,34 @@ import React from "react";
 }
 const skillsData = [
   {
+    id: 1,
     category: "Languages",
     skills: [
-      { name: "HTML", level: "60" },
-      { name: "CSS", level: "60" },
-      { name: "JavaScript", level: "50" },
+      { id: 101, name: "HTML", level: "60" },
+      { id: 102, name: "CSS", level: "60" },
+      { id: 103, name: "JavaScript", level: "50" },
     ],
   },
   {
+    id: 2,
     category: "Frameworks",
     skills: [
-      { name: "React", level: "50" },
-      { name: "Express.js", level: "50" },
-      { name: "Next.js", level: "50" },
+      { id: 201, name: "React", level: "50" },
+      { id: 202, name: "Express.js", level: "50" },
+      { id: 203, name: "Next.js", level: "50" },
     ],
   },
   {
+    id: 3,
     category: "Tools",
-    skills: [{ name: "Github", level: "50" }],
+    skills: [{ id: 301, name: "Github", level: "50" }],
   },
   {
+    id: 4,
     category: "Design",
     skills: [
-      { name: "Figma", level: "60" },
-      { name: "Adobe PS", level: "60" },
+      { id: 401, name: "Figma", level: "60" },
+      { id: 402, name: "Adobe PS", level: "60" },
     ],
   },
 ];
@@ -38,21 +42,21 @@ console.log("skillsData", skillsData);
 
 const SkillSection = () => {
   return (
-    <section id="skills">
-      <div className="skills-main">
+    <section id="skills" className="skills-main">
+      <div>
         {/* Skills Header */}
         <h2 className="skills-head">My Skills</h2>
 
         {/* Skills scrollable container */}
         <div className="skills-scroll">
-          {skillsData.map((categoryItem, indexPosition) => (
-            <div key={indexPosition} className="skills-card">
+          {skillsData.map((categoryItem) => (
+            <div key={categoryItem.id} className="skills-card">
               {/* Category Name */}
               <h3 className="skills-category">{categoryItem.category}</h3>
               {/* Skills List */}
               <div>
-                {categoryItem.skills.map((skillItem, indexPosition) => (
-                  <div key={indexPosition} className="skills-name">
+                {categoryItem.skills.map((skillItem) => (
+                  <div key={skillItem.id} className="skills-name">
                     {/* Skills Name */}
                     <span>{skillItem.name}</span>
                     {/* Progress bar */}

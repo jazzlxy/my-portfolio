@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navlink from "./Navlink";
@@ -10,6 +10,7 @@ import {
   SunIcon,
 } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
+import { useTheme } from "./ThemeContext"; // Import the hook
 
 const Navlinks = [
   /* my array */
@@ -38,42 +39,16 @@ const Navlinks = [
 const Navbar = () => {
   /* State to track if mobile menu is open */
   const [navbarOpen, setNavbarOpen] = useState(false); /*set false to close */
-  const [isDarkMode, setIsDarkMode] =
-    useState(true); /* Default dark galaxy mode */
 
-  const switchTheme = () => {
-    const newMode = !isDarkMode; // Flip: true→false or false→true
-    setIsDarkMode(newMode);
-
-    // If True (dark) → remove "light" class
-    // If False (light) → add "light" class
-    if (newMode === true) {
-      document.documentElement.classList.remove("light");
-    } else {
-      document.documentElement.classList.add("light");
-    }
-    // Save choice to browser (to remember next time)
-    localStorage.setItem("theme", newMode ? "dark" : "light");
-  };
-  //   /* When page loads, check if user had a saved preference */
-  //   useEffect(() => {
-  //     const savedTheme = localStorage.getItem("theme");
-
-  //     if (savedTheme === "light") {
-  //         setIsDarkMode(false); // user prefer light mode
-  //         document.documentElement.classList.add("light");
-  //     } else {
-  //         setIsDarkMode(true); // user prefer dark galaxy mode
-  //         document.documentElement.classList.remove("light");
-  //     }
-  //   });
+  // Use theme hook
+  const { darkMode, toggleTheme } = useTheme();
 
   return (
     <nav className="nav-fix">
       <div className="navbar">
         {/* Logo */}
         <Link href={"/"}>
-          {isDarkMode ? (
+          {darkMode ? (
             /* Dark mode show dark logo */
             <Image
               src="/images/dark-logo.png"
@@ -116,10 +91,10 @@ const Navbar = () => {
             </button>
           )}
         </div>
-        <div className="switch-theme">
+        <div className="toggle-theme">
           {/* if isDarkMode is true, ? = show sun : = otherwise show Moon */}
-          <button onClick={switchTheme}>
-            {isDarkMode ? (
+          <button onClick={toggleTheme}>
+            {darkMode ? (
               <SunIcon className="w-6 h-6 text-yellow-400" />
             ) : (
               <MoonIcon className="w-6 h-6 text-purple-600" />
@@ -133,16 +108,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// Step by step:
-// isDarkMode is true
-// !true = false
-// So: newMode = false
-// Result: We switch to LIGHT mode
-
-// Step by step:
-// isDarkMode is false
-// !false = true
-// So: newMode = true
-
-// Result: We switch to DARK mode
