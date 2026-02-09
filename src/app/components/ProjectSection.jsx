@@ -17,7 +17,7 @@ const projectData = [
     description: "Using Next.js to build my personal portfolio",
     image: "/images/projects/p2.png",
     gitURL: "https://github.com/jazzlxy/my-portfolio.git",
-    previewURL: "/",
+    previewURL: "https://jazz-portfoliov1.vercel.app",
   },
 ];
 
